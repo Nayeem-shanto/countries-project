@@ -30,6 +30,13 @@ React-এ "Lift up the state" বলতে বোঝায় —
     /* amra ekhane ekta state declare korsi and and ekta event handel korar jonno function likhsi but ekhane kono button nai handel use korar jonno.. tai amader ei handel function ta ke country component er moddhe props hishebe pathaite hobe..  */
  }
 
+ /* state for flag */
+ const [visitedFlag, setVisitedFlag]= useState([]);
+ const handleFlags =(flag)=>{
+  const newVisitedFlags = [...visitedFlag, flag];
+  setVisitedFlag(newVisitedFlags);
+ }
+
 return (
     <div>
       <h3 className="text-center text-4xl font-bold mb-5">
@@ -43,10 +50,17 @@ return (
             visitedCountries.map(country => <li key={country.cca3.cca3}>{country.name.common}</li>)
         }
       </ol>
-
+         <div className="border-2 text-center w-10/12 mx-auto mb-4">
+          <h3>Flags: {visitedFlag.length}</h3>
+      <div className="w-20 flex  p-4 gap-2">
+        {
+          visitedFlag.map(flag => <img src={flag}></img>)
+        }
+      </div>
+         </div>
       <div className="grid grid-cols-1  md:grid-cols-3 gap-4 ">
         {countries.map((country) => (
-          <Country key={country.cca3.cca3} handleVisitedCountries={handleVisitedCountries} country={country}></Country>
+          <Country key={country.cca3.cca3} handleVisitedCountries={handleVisitedCountries} handleFlags={handleFlags} country={country}></Country>
         ))}
       </div>
     </div>

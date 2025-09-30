@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <h1 className='text-blue-600 text-2xl font-bold font-sans text-center mt-5'>Lest start the countries flag project</h1>
+      <h1 className='text-blue-600 text-2xl font-bold font-sans text-center mt-5'>Countries flag project</h1>
 
       <section className='w-10/12 mx-auto bg-slate-300 mt-10 p-5'>
         <Countries fetchCountries={fetchCountries}></Countries>
